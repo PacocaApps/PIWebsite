@@ -54,7 +54,7 @@ fs.readFile('./index.html',null,function(error,data){
             break;  
     }  
 });  
-server.listen(8082); 
+server.listen(21094); 
 
 
 
