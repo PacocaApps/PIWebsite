@@ -3,6 +3,9 @@ var url = require('url');
 var fs = require('fs');  
 var server = http.createServer(function(request, response) {  
     var path = url.parse(request.url).pathname;  
+  
+  // WEBSITE PAGE LOCATOR
+  
     switch (path) {  
      
         case '/':  
