@@ -8,8 +8,7 @@ function onRequest(request, response){
         response.writeHead(404);
         response.write("File Not Found Error Type 404 ")
     }else{
-        console(__dirname)
-        console(__filename)
+       
         response.write(data);
         
     }
