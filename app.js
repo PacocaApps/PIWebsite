@@ -23,7 +23,7 @@ var server = http.createServer(function(request, response) {
                 }  
             });  
             break;  
-        case '/login.html':  
+        case '/pages/login.html':  
             fs.readFile(__dirname + path, function(error, data) {  
                 if (error) {  
                     response.writeHead(404);  
