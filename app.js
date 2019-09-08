@@ -17,4 +17,4 @@ function onRequest(request, response){
     })
 
 }
-http.createServer(onRequest).listen(8080);
+http.createServer(onRequest).listen(80);
