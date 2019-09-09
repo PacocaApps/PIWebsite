@@ -8,7 +8,7 @@ var app = express();
 
 var server = http.createServer(function(request, response) {  
     var path = url.parse(request.url).pathname;  
-
+var search = url.parse(request.url).search;
 // REQUEST HANDLER
 
 
@@ -123,6 +123,16 @@ var server = http.createServer(function(request, response) {
                     response.write(data);  
                     response.end();  
                   });
+            break; 
+
+              case '/admin/notes/':  
+              fs.writeFile("/notes.txt", search, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+            
+                console.log("The file was saved!");
+            }); 
             break;  
         default:  
             response.writeHead(404);  
