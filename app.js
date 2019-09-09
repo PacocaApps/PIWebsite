@@ -115,7 +115,7 @@ var server = http.createServer(function(request, response) {
             break;  
           
             case '/notes.txt':  
-            fs.readFile("/notes.txt", 'utf8', function(err, data) {
+            fs.readFile("./notes.txt", 'utf8', function(err, data) {
                     if (err) throw err;
                     response.writeHead(200, {  
                         'Content-Type': 'text/html'  
