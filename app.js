@@ -14,10 +14,8 @@ var server = http.createServer(function(request, response) {
 
 
 
-if (request.method === "GET") {
-    response.writeHead(200, { "Content-Type": "text/html" });
-    fs.createReadStream("./admin/notes.txt", "UTF-8").pipe(response);
-} else if (request.method === "POST") {
+
+if (request.method === "POST") {
 
     var body = "";
     request.on("data", function (chunk) {
@@ -130,12 +128,15 @@ if (request.method === "GET") {
             }); 
             break;  
           
-            case '/codebase.pacocascript':  
-            response.writeHead(200, {  
-                'Content-Type': 'text/html'  
-            });  
-            response.write("Comunism Works");  
-            response.end();  
+            case '/admin/notes.txt':  
+            fs.readFile("/admin/notes.txt", 'utf8', function(err, data) {
+                    if (err) throw err;
+                    response.writeHead(200, {  
+                        'Content-Type': 'text/html'  
+                    });  
+                    response.write(data);  
+                    response.end();  
+                  });
             break;  
         default:  
             response.writeHead(404);  
