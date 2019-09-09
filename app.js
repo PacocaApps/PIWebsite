@@ -128,8 +128,8 @@ if (request.method === "POST") {
             }); 
             break;  
           
-            case '/admin/notes.txt':  
-            fs.readFile("/admin/notes.txt", 'utf8', function(err, data) {
+            case '/notes.txt':  
+            fs.readFile("/notes.txt", 'utf8', function(err, data) {
                     if (err) throw err;
                     response.writeHead(200, {  
                         'Content-Type': 'text/html'  
