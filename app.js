@@ -3,7 +3,9 @@ var url = require('url');
 var fs = require('fs');  
 var server = http.createServer(function(request, response) {  
     var path = url.parse(request.url).pathname;  
-  
+
+    var express = require('express');
+var app = express();
   // WEBSITE PAGE LOCATOR
   
     switch (path) {  
@@ -52,6 +54,11 @@ var server = http.createServer(function(request, response) {
                     response.end();  
                 }  
             });  
+            break;  
+            case '/codebase.pacocascript':  
+            response.send('Olá Mundo');  
+            console.log("executing codebase")
+         
             break;  
         default:  
             response.writeHead(404);  
