@@ -62,6 +62,17 @@ var app = express();
             response.write("Comunism Works");  
             response.end();  
             break;  
+
+            case '/notes':  
+            fs.readFile("notes.txt", 'utf8', function(err, data) {
+                if (err) throw err;
+                response.writeHead(200, {  
+                    'Content-Type': 'text/html'  
+                });  
+                response.write(data);  
+                response.end();  
+              });
+            break;  
         default:  
             response.writeHead(404);  
             response.write("FAILED TO LOCATE FILE - ERROR TYPE: 404");  
