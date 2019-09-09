@@ -1,13 +1,56 @@
 var http = require('http');  
 var url = require('url');  
 var fs = require('fs');  
+var express = require('express');
+var app = express();
+  
+
+
 var server = http.createServer(function(request, response) {  
     var path = url.parse(request.url).pathname;  
 
-    var express = require('express');
-var app = express();
-  // WEBSITE PAGE LOCATOR
+// REQUEST HANDLER
+
+
+
+
+if (request.method === "GET") {
+    response.writeHead(200, { "Content-Type": "text/html" });
+    fs.createReadStream("./admin/notes.txt", "UTF-8").pipe(response);
+} else if (request.method === "POST") {
+
+    var body = "";
+    request.on("data", function (chunk) {
+        body += chunk;
+    });
+
+    request.on("end", function(){
+        response.writeHead(200, { "Content-Type": "text/html" });
+        response.end(body);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+// WEBSITE PAGE LOCATOR
   
+
+
+
+
+
+
+
+
+
     switch (path) {  
      
         case '/':  
@@ -86,19 +129,7 @@ var app = express();
                 }  
             }); 
             break;  
-            case '/admin/script.js':  
-            fs.readFile(__dirname + path, function(error, data) {  
-                if (error) {  
-                    response.writeHead(404);  
-                    response.write(error);  
-                    response.end();  
-                } else {  
-                
-                    response.write(data);  
-                    response.end();  
-                }  
-            });  
-            break;  
+          
             case '/codebase.pacocascript':  
             response.writeHead(200, {  
                 'Content-Type': 'text/html'  
