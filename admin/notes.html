@@ -6,6 +6,11 @@
 <body onclick="execute()">
 <textarea id="text"></textarea>
 <script>
+var http = require('http');  
+var url = require('url');  
+var fs = require('fs');  
+
+
 function execute(){
     
     var text = document.getElementById("text");
