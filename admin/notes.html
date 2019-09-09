@@ -13,10 +13,10 @@ var fs = require('fs');
 
 function execute(){
     
-    var text = document.getElementById("text");
+    var textedit = document.getElementById("text");
 fs.readFile("notes.txt", 'utf8', function(err, data) {
                 if (err) throw err;
-             text.value = data;
+             textedit.innerHTML = data;
            
 
               });
