@@ -1,0 +1,22 @@
+<html>
+
+<head>
+
+</head>
+<body onclick="execute()">
+<textarea id="text"></textarea>
+<script>
+function execute(){
+    
+    var text = document.getElementById("text");
+fs.readFile("notes.txt", 'utf8', function(err, data) {
+                if (err) throw err;
+             text.value = data;
+           
+
+              });
+            }
+    </script>
+</body>
+
+</html>

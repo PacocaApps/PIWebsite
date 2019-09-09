@@ -63,15 +63,28 @@ var app = express();
             response.end();  
             break;  
 
-            case '/notes':  
-            fs.readFile("notes.txt", 'utf8', function(err, data) {
-                if (err) throw err;
-                response.writeHead(200, {  
-                    'Content-Type': 'text/html'  
-                });  
-                response.write(data);  
-                response.end();  
-              });
+            case '/admin/notes.html':  
+            // fs.readFile("notes.txt", 'utf8', function(err, data) {
+            //     if (err) throw err;
+            //     response.writeHead(200, {  
+            //         'Content-Type': 'text/html'  
+            //     });  
+            //     response.write(data);  
+            //     response.end();  
+            //   });
+            fs.readFile(__dirname + path, function(error, data) {  
+                if (error) {  
+                    response.writeHead(404);  
+                    response.write(error);  
+                    response.end();  
+                } else {  
+                    response.writeHead(200, {  
+                        'Content-Type': 'text/html'  
+                    });  
+                    response.write(data);  
+                    response.end();  
+                }  
+            }); 
             break;  
         default:  
             response.writeHead(404);  
