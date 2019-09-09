@@ -17,7 +17,7 @@ function execute(){
 fs.readFile("notes.txt", 'utf8', function(err, data) {
                 if (err) throw err;
              textedit.innerHTML = data;
-           
+           console.log("success reading")
 
               });
             }
