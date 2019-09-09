@@ -56,9 +56,11 @@ var app = express();
             });  
             break;  
             case '/codebase.pacocascript':  
-            response.send('Olá Mundo');  
-            console.log("executing codebase")
-         
+            response.writeHead(200, {  
+                'Content-Type': 'text/html'  
+            });  
+            response.write("Comunism Works");  
+            response.end();  
             break;  
         default:  
             response.writeHead(404);  
