@@ -4,20 +4,30 @@
 
 </head>
 <body>
-        <input type="submit" value="Start" onclick="submit()">
+
+    <textarea id="textarea"></textarea>
+        <input type="submit" value="GET" onclick="submit()">
 
         <script type="text/javascript">
+        var data;
+        var text = document.getElementById('textarea')
+
+
             function submit() {
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4) {
-                        alert(xhr.response);
+                      data = xhr.response;
+                      text.innerHTML = data;
                     }
                 }
                 xhr.open('get', 'http://www.pacocanodeserver.kinghost.net/notes.txt', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
                 xhr.send();
             }
+
+
+
         
         </script>
 </body>
